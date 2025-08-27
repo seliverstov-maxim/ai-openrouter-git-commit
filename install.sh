@@ -17,7 +17,7 @@ rm -f "$DEST"
 curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
-printf "Enter your OpenRouter API key: "
+echo "Enter your OpenRouter API key: "
 read OPENROUTER_API_KEY
 
 cat <<EOF

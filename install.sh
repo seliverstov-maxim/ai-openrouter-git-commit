@@ -18,6 +18,7 @@ curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
 read -p "Enter your OpenRouter API key (or enter to skip): " openrouter_api_key
+openrouter_api_key:='<your openrouter api key>'
 
 cat <<EOF
 

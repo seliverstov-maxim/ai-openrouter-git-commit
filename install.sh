@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install.sh - installer for ai-openrouter-git-commit generate_commit_title.sh
-# Downloads generate_commit_title.sh into /usr/local/bin and prints
+# Downloads generate_commit_title.sh into ~/bin and prints
 # shell export lines for configuration.
 
 set -euo pipefail
@@ -9,7 +9,8 @@ set -euo pipefail
 SCRIPT_URL="https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/generate_commit_title.sh"
 
 # (no-op; SCRIPT_URL is defined above)
-DEST="/usr/local/bin/generate_commit_title.sh"
+DEST="$HOME/bin/generate_commit_title.sh"
+mkdir -p "$HOME/bin"
 
 echo "Installing generate_commit_title.sh to $DEST..."
 curl -fsSL "$SCRIPT_URL" -o "$DEST"

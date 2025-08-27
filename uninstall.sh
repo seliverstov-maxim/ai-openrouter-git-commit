@@ -4,11 +4,11 @@
 
 set -euo pipefail
 
-DEST="/usr/local/bin/generate_commit_title.sh"
+DEST="$HOME/bin/generate_commit_title.sh"
 
-echo "Removing $DEST (you may be prompted for your sudo password)..."
+echo "Removing $DEST..."
 if [[ -f "$DEST" ]]; then
-  sudo rm -f "$DEST"
+  rm -f "$DEST"
   echo "Removed $DEST"
 else
   echo "$DEST not found, skipping removal"

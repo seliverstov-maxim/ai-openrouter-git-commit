@@ -15,11 +15,20 @@ else
 fi
 
 echo "Checking shell startup files for OpenRouter configuration..."
-if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc 2>/dev/null; then
-  echo "Configurations found in:"
-  grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc 2>/dev/null
+files_to_check=()
+for f in "$HOME/.bashrc" "$HOME/.bash_profile" "$HOME/.zshrc"; do
+  [[ -f $f ]] && files_to_check+=("$f")
+done
+
+if (( ${#files_to_check[@]} > 0 )); then
+  if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' "${files_to_check[@]}"; then
+    echo "Configurations found in:"
+    grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' "${files_to_check[@]}"
+  else
+    echo "No OpenRouter configuration found in your shell startup files."
+  fi
 else
-  echo "No OpenRouter configuration found in your shell startup files."
+  echo "No shell startup files found to check for configuration."
 fi
 
 cat <<EOF

@@ -17,9 +17,10 @@ rm -f "$DEST"
 curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
-read -p "Enter your OpenRouter API key: " OPENROUTER_API_KEY
-cat <<EOF
+printf "Enter your OpenRouter API key: "
+read OPENROUTER_API_KEY
 
+cat <<EOF
 ✅ generate_commit_title.sh has been installed to $DEST
 
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):

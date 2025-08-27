@@ -16,16 +16,8 @@ AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT).
 Run the installer script directly from GitHub (no sudo required):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/install.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/install.sh)"
 ```
-
-Or with `wget`:
-
-```bash
-wget -qO- https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/install.sh | bash
-```
-
-
 
 The installer will also print the environment-variable export lines and a suggested alias to add to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc).
 

@@ -21,6 +21,7 @@ echo "Enter your OpenRouter API key: "
 read OPENROUTER_API_KEY
 
 cat <<EOF
+
 ✅ generate_commit_title.sh has been installed to $DEST
 
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):

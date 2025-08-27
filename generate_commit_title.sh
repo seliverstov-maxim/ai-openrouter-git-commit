@@ -6,7 +6,7 @@ set -euo pipefail
 # Dependencies
 command -v git >/dev/null 2>&1 || { echo >&2 "Error: git is required but not installed."; exit 1; }
 command -v curl >/dev/null 2>&1 || { echo >&2 "Error: curl is required but not installed."; exit 1; }
-command -v jq  >/dev/null 2>&1 || { echo >&2 "Error: jq is required but not installed."; exit 1; }
+
 
 # Ensure API key and model are set
 : "${OPENROUTER_API_KEY:?Environment variable OPENROUTER_API_KEY must be set}"
@@ -66,7 +66,7 @@ cmd=$(cat << EOF
 EOF)
 
 http_response=$(eval "$cmd")
-# Extract commit title from JSON response using sed fallback
+# Extract commit title from JSON response using pure sed
 title=$(printf '%s' "$http_response" | sed -n 's/.*"content":[[:space:]]*"\([^"]*\)".*/\1/p' | head -1)
 echo
 echo "git commit -m '$title'"

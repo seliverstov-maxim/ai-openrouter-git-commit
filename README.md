@@ -8,7 +8,7 @@ AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT).
 
 ## Prerequisites
 
-- **git**, **curl**, and **jq** must be installed.
+- **git** and **curl** must be installed.
 - An **OpenRouter API key**.
 
 ## Installation

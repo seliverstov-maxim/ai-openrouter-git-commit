@@ -42,9 +42,11 @@ ai-commit
 like:
 
 ```bash
-git commit -m 'Improve formatting and clarify instructions in install and uninstall scripts.'
+ai-commit
+> git commit -m 'Improve formatting and clarify instructions in install and uninstall scripts.'
 
-Proceed with this commit message? [Y,y,enter/N,n]
+> Proceed with this commit message? [Y,y,enter/N,n]
+# (enter)
 ```
 
 The script will fetch a suggested commit title, prompt you to confirm, and then create the commit.

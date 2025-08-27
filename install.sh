@@ -13,6 +13,7 @@ DEST="$HOME/bin/generate_commit_title.sh"
 mkdir -p "$HOME/bin"
 
 echo "Installing generate_commit_title.sh to $DEST..."
+rm -f "$DEST"
 curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
@@ -22,25 +23,21 @@ cat <<EOF
 
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
-# Required: OpenRouter API key
 export OPENROUTER_API_KEY="your_api_key_here"
-
-# Optional: Select a different model (default: openai/gpt-4o)
 export OPENROUTER_MODEL="openai/gpt-4o"
-
-# Optional: Override the API endpoint (default: https://openrouter.ai/v1/chat/completions)
-export OPENROUTER_ENDPOINT="https://openrouter.ai/v1/chat/completions"
+alias ai-commit="$DEST"
 
 After editing, reload your shell:
 
-  source ~/.bashrc   # or ~/.zshrc, ~/.bash_profile, etc.
+  source ~/.bashrc   # or
+  source ~/.zshrc, # or
+  source ~/.bash_profile # etc.
 
-You can now use:
+Then you can now use:
 
-  generate_commit_title.sh
+  ai-commit
 
-Optionally, add a shell alias for convenience:
-  alias ai-commit="generate_commit_title.sh"
+To check tool run ai-commit -v
 
 Happy committing!
 EOF

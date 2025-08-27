@@ -7,11 +7,13 @@ set -euo pipefail
 command -v git >/dev/null 2>&1 || { echo >&2 "Error: git is required but not installed."; exit 1; }
 command -v curl >/dev/null 2>&1 || { echo >&2 "Error: curl is required but not installed."; exit 1; }
 
-
 # Ensure API key and model are set
 : "${OPENROUTER_API_KEY:?Environment variable OPENROUTER_API_KEY must be set}"
+if [[ ${#OPENROUTER_API_KEY} -lt 70 ]]; then
+  echo >&2 "Error: OPENROUTER_API_KEY invalid"
+  exit 1
+fi
 : "${OPENROUTER_MODEL:=openai/gpt-4o}"
-: "${OPENROUTER_ENDPOINT:=https://openrouter.ai/v1/chat/completions}"
 
 show_help() {
   cat <<EOF

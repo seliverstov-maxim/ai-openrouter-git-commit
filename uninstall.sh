@@ -14,8 +14,13 @@ else
   echo "$DEST not found, skipping removal"
 fi
 
-echo "Searching for environment and alias entries in your shell startup files..."
-grep -HnE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc || true
+echo "Checking shell startup files for OpenRouter configuration..."
+if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc; then
+  echo "Configurations found in:"
+  grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc
+else
+  echo "No OpenRouter configuration found in your shell startup files."
+fi
 
 cat <<EOF
 
@@ -24,16 +29,9 @@ cat <<EOF
 Next, you may want to remove the following lines from your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
 # Required: OpenRouter API key
-export OPENROUTER_API_KEY="your_api_key_here"
-
-# Optional: Select a different model (default: openai/gpt-4o)
-export OPENROUTER_MODEL="openai/gpt-4o"
-
-# Optional: Override the API endpoint (default: https://openrouter.ai/v1/chat/completions)
-export OPENROUTER_ENDPOINT="https://openrouter.ai/v1/chat/completions"
-
-# Alias for ai-commit shortcut
-alias ai-commit="generate_commit_title.sh"
+export OPENROUTER_API_KEY="..."
+export OPENROUTER_MODEL="..."
+alias ai-commit="..."
 
 After editing, reload your shell:
 

@@ -26,7 +26,7 @@ The installer will also print the environment-variable export lines and a sugges
 To remove the tool and clean up your environment (no sudo required), run:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/uninstall.sh | bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/uninstall.sh)"
 ```
 
 This will delete the installed script and print instructions to remove the exports and alias.

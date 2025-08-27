@@ -17,8 +17,7 @@ rm -f "$DEST"
 curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
-echo "Enter your OpenRouter API key: "
-read OPENROUTER_API_KEY
+read -p "Enter your OpenRouter API key: " openrouter_api_key
 
 cat <<EOF
 
@@ -26,7 +25,7 @@ cat <<EOF
 
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
-export OPENROUTER_API_KEY="$OPENROUTER_API_KEY"
+export OPENROUTER_API_KEY="$openrouter_api_key"
 export OPENROUTER_MODEL="openai/gpt-4o"
 alias ai-commit="$DEST"
 

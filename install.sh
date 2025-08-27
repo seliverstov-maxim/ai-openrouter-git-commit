@@ -25,15 +25,15 @@ cat <<EOF
 
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
-export OPENROUTER_API_KEY="$openrouter_api_key"
-export OPENROUTER_MODEL="openai/gpt-4o"
-alias ai-commit="$DEST"
+    export OPENROUTER_API_KEY="$openrouter_api_key"
+    export OPENROUTER_MODEL="openai/gpt-4o"
+    alias ai-commit="$DEST"
 
 After editing, reload your shell:
 
-  source ~/.bashrc # or
-  source ~/.zshrc, # or
-  source ~/.bash_profile # etc.
+    source ~/.bashrc    # or
+    source ~/.zshrc     # or
+    source ~/.bash_profile # etc.
 
 Then you can now use:
 

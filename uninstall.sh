@@ -14,36 +14,25 @@ else
   echo "$DEST not found, skipping removal"
 fi
 
-echo "Checking shell startup files for OpenRouter configuration..."
-files_to_check=()
-for f in "$HOME/.bashrc" "$HOME/.bash_profile" "$HOME/.zshrc"; do
-  [[ -f $f ]] && files_to_check+=("$f")
-done
+echo "✅ Uninstallation complete!"
 
-if (( ${#files_to_check[@]} > 0 )); then
-  if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' "${files_to_check[@]}"; then
-    echo "Configurations found in:"
-    grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' "${files_to_check[@]}"
-  else
-    echo "No OpenRouter configuration found in your shell startup files."
-  fi
-else
-  echo "No shell startup files found to check for configuration."
-fi
+echo "Checking shell startup files for OpenRouter configuration..."
+echo ''
+find ~/ -maxdepth 1 -type f -name '.*' ! -regex '.*/\..*history' | xargs grep -E --color=auto "export OPENROUTER_API_KEY|export OPENROUTER_MODEL|alias ai-commit" 2>/dev/null || true
+
 
 cat <<EOF
 
-✅ Uninstallation complete!
+If any configuration lines were found above, please remove them from the corresponding shell startup file(s).
 
-Next, you may want to remove the following lines from your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
+    export OPENROUTER_API_KEY="..."
+    export OPENROUTER_MODEL="..."
+    alias ai-commit="..."
 
-# Required: OpenRouter API key
-export OPENROUTER_API_KEY="..."
-export OPENROUTER_MODEL="..."
-alias ai-commit="..."
+After removing reload your shell:
 
-After editing, reload your shell:
-
-  source ~/.bashrc   # or ~/.zshrc, ~/.bash_profile, etc.
+    source ~/.bashrc   # or
+    source ~/.zshrc,   # or
+    source ~/.bash_profile, etc.
 
 EOF

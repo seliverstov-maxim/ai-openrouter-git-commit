@@ -57,9 +57,9 @@ You can use chaining to speed up add, commit, push:
 git add . && ai-commit && git push
 
 > git commit -m 'Improve README Formatting and Update Instructions'
-# (enter)
 
 > Proceed with this commit message? [Y,y,enter/N,n]
+# (enter)
 > [main 5b0aab5] Improve README Formatting and Update Instructions
 > 1 file changed, 9 insertions(+), 1 deletion(-)
 > ...

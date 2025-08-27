@@ -49,6 +49,19 @@ Proceed with this commit message? [Y,y,enter/N,n]
 
 The script will fetch a suggested commit title, prompt you to confirm, and then create the commit.
 
+You can use chaining to speed up add, commit, push:
+
+```bash
+git add . && ai-commit && git push
+
+git commit -m 'Improve README Formatting and Update Instructions'
+
+Proceed with this commit message? [Y,y,enter/N,n]
+[main 5b0aab5] Improve README Formatting and Update Instructions
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+ ...
+```
+
 ## Help
 
 Run:

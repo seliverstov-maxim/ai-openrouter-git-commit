@@ -18,7 +18,7 @@ curl -fsSL "$SCRIPT_URL" -o "$DEST"
 chmod 755 "$DEST"
 
 read -p "Enter your OpenRouter API key (or enter to skip): " openrouter_api_key
-openrouter_api_key:='<your openrouter api key>'
+: "${openrouter_api_key:=<your openrouter api key>}"
 
 cat <<EOF
 
@@ -27,18 +27,18 @@ cat <<EOF
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
     export OPENROUTER_API_KEY="$openrouter_api_key"
-    export OPENROUTER_MODEL="openai/gpt-4o"
+    export OPENROUTER_MODEL="openai/gpt-4o" #(optional)
     alias ai-commit="$DEST"
 
 After editing, reload your shell:
 
-    source ~/.bashrc    # or
-    source ~/.zshrc     # or
-    source ~/.bash_profile # etc.
+    source ~/.bashrc        # or
+    source ~/.zshrc         # or
+    source ~/.bash_profile  # etc.
 
 Then you can now use:
 
-  ai-commit
+    ai-commit
 
 To check tool run ai-commit -v
 

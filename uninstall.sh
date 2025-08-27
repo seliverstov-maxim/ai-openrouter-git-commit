@@ -31,8 +31,8 @@ If any configuration lines were found above, please remove them from the corresp
 
 After removing reload your shell:
 
-    source ~/.bashrc   # or
-    source ~/.zshrc,   # or
-    source ~/.bash_profile, etc.
+    source ~/.bashrc        # or
+    source ~/.zshrc,        # or
+    source ~/.bash_profile  #etc.
 
 EOF

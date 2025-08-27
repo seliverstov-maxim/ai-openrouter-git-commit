@@ -15,9 +15,9 @@ else
 fi
 
 echo "Checking shell startup files for OpenRouter configuration..."
-if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc; then
+if grep -qE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc 2>/dev/null; then
   echo "Configurations found in:"
-  grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc
+  grep -lE 'export OPENROUTER_API_KEY|export OPENROUTER_MODEL|export OPENROUTER_ENDPOINT|alias ai-commit' ~/.bashrc ~/.bash_profile ~/.zshrc 2>/dev/null
 else
   echo "No OpenRouter configuration found in your shell startup files."
 fi

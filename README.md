@@ -1,4 +1,4 @@
-# ai-commit
+# ai-openrouter-git-commit
 
 AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT).
 
@@ -13,16 +13,16 @@ AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT).
 
 ## Installation
 
-Run the installer script directly from GitHub (you may be prompted for your sudo password):
+Run the installer script directly from GitHub (you may be prompted for your sudo password). Make sure to replace `<OWNER>` below with your GitHub username or organization (for this repo, it’s `seliverstov-maxim`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/<OWNER>/ai-commit/main/install.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/install.sh | sudo bash
 ```
 
 Or with `wget`:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/<OWNER>/ai-commit/main/install.sh | sudo bash
+wget -qO- https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/install.sh | sudo bash
 ```
 
 Replace `<OWNER>` with your GitHub username or organization.

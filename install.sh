@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-# install.sh - installer for ai-commit generate_commit_title.sh
+# install.sh - installer for ai-openrouter-git-commit generate_commit_title.sh
 # Downloads generate_commit_title.sh into /usr/local/bin and prints
 # shell export lines for configuration.
 
 set -euo pipefail
 
-# GitHub owner/org and repo settings
-OWNER="<OWNER>"
-REPO="ai-commit"
-BRANCH="main"
+# Direct URL to raw script on GitHub
+SCRIPT_URL="https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/generate_commit_title.sh"
 
-RAW_BASE="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}"
-SCRIPT_URL="${RAW_BASE}/generate_commit_title.sh"
+# (no-op; SCRIPT_URL is defined above)
 DEST="/usr/local/bin/generate_commit_title.sh"
 
 echo "Installing generate_commit_title.sh to $DEST..."

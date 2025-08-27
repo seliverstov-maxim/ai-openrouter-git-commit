@@ -1,6 +1,6 @@
 # ai-openrouter-git-commit
 
-AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT). This project is super simple, doesn't need any fancy dependencies like specific programming languages (no Node.js hassle here), and it's all about being easy to use and straightforward.
+AI‑powered Git commit title generator (English) leveraging OpenRouter (GPT). This project is super simple, doesn't need any fancy dependencies like specific programming languages (no Node.js hassle here), and it's all about being easy to use and straightforward. It's compatible with Unix-like operating systems.
 
 ## Overview
 

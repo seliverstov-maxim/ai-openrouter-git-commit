@@ -29,7 +29,7 @@ alias ai-commit="$DEST"
 
 After editing, reload your shell:
 
-  source ~/.bashrc   # or
+  source ~/.bashrc # or
   source ~/.zshrc, # or
   source ~/.bash_profile # etc.
 

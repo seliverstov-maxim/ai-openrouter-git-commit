@@ -29,6 +29,15 @@ Replace `<OWNER>` with your GitHub username or organization.
 
 The installer will also print the environment-variable export lines you need to add to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc).
 
+## Uninstallation
+
+To remove the tool and clean up your environment, run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/seliverstov-maxim/ai-openrouter-git-commit/main/uninstall.sh | sudo bash
+```
+
+This will delete the installed script and print instructions to remove the exports and alias.
 
 ## Usage
 

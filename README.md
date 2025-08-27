@@ -36,7 +36,15 @@ This will delete the installed script and print instructions to remove the expor
 Stage your changes and run:
 
 ```bash
-generate_commit_title.sh
+ai-commit
+```
+
+like:
+
+```bash
+git commit -m 'Improve formatting and clarify instructions in install and uninstall scripts.'
+
+Proceed with this commit message? [Y,y,enter/N,n]
 ```
 
 The script will fetch a suggested commit title, prompt you to confirm, and then create the commit.

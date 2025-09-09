@@ -27,7 +27,7 @@ cat <<EOF
 Next, configure your environment variables by adding the following to your shell startup file (~/.bashrc, ~/.bash_profile, or ~/.zshrc):
 
     export OPENROUTER_API_KEY="$openrouter_api_key"
-    export OPENROUTER_MODEL="openai/gpt-4o" #(optional)
+    export OPENROUTER_MODEL="openai/gpt-oss-20b" #(optional)
     alias ai-commit="$DEST"
 
 After editing, reload your shell:

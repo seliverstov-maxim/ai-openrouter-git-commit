@@ -13,7 +13,7 @@ if [[ ${#OPENROUTER_API_KEY} -lt 70 ]]; then
   echo >&2 "Error: OPENROUTER_API_KEY invalid"
   exit 1
 fi
-: "${OPENROUTER_MODEL:=openai/gpt-4o}"
+: "${OPENROUTER_MODEL:=openai/gpt-oss-20b}"
 
 show_help() {
   cat <<EOF
@@ -26,7 +26,7 @@ Options:
 
 Environment:
 OPENROUTER_API_KEY  To configure OpenRouter API key
-OPENROUTER_MODEL    Configure AI model (defaults to openai/gpt-4o)
+OPENROUTER_MODEL    Configure AI model (defaults to openai/gpt-oss-20b)
 EOF
 }
 
@@ -61,7 +61,7 @@ cmd=$(cat << EOF
     -d '{
         "model": "'"$OPENROUTER_MODEL"'",
         "messages": [
-            { "role": "system", "content": "Generate a concise commit title in English based on the provided git diff." },
+            { "role": "system", "content": "Generate a concise Git commit title in English (<50 chars, imperative mood). Output only the title." },
             { "role": "user", "content": "Git diff:\\n\\n$escaped_diff" }
         ]
     }'
@@ -74,6 +74,8 @@ echo
 echo "git commit -m '$title'"
 echo
 read -p "Proceed with this commit message? [Y,y,enter/N,n] " answer
+# Clean answer from newline characters
+answer=$(printf '%s' "$answer" | tr -d '\n\r')
 case "$answer" in
   [Yy]|[Yy][Ee][Ss]|"")
     git commit -m "$title"
